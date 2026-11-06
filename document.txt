@@ -1,0 +1,43 @@
+SHORTS MAKER - HOW TO RUN
+
+Requirements
+- Windows
+- Python 3.10 or newer
+- The project .env file with a valid OPENAI_API_KEY
+
+Setup (one time)
+1. Open PowerShell in the project folder.
+2. Create and activate a virtual environment:
+
+   py -3.11 -m venv .venv
+   .\.venv\Scripts\Activate.ps1
+
+   If the virtual environment already exists, just activate it.
+3. Install the project:
+
+   python -m pip install -e .
+
+Run
+1. Make sure the project-root .env file contains your OpenAI API key.
+2. Generate a video by replacing the example topic:
+
+   shorts-maker "Why babies smile"
+
+   Or use:
+
+   python -m shorts_maker "Why babies smile"
+
+3. If you omit the topic, the app asks you to enter one:
+
+   shorts-maker
+
+Configuration
+- TTS_PROVIDER=windows uses Windows built-in speech. TTS_PROVIDER=openai
+  uses the OpenAI text-to-speech API.
+- OPENAI_IMAGE_MODEL must be a model available to your OpenAI API key.
+- Edit other video and audio settings in .env as needed.
+- Never share or commit your .env file or API key.
+
+Output
+Each run saves the MP4, story.json, five scene images, and voice-over under
+the output folder. The generated MP4 is a vertical 1080x1920 video by default.
